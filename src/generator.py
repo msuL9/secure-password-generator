@@ -9,6 +9,5 @@ def generate_password(length=12, include_upper=True, include_digits=True, includ
         chars += string.digits
     if include_symbols:
         chars += string.punctuation
-    if len(chars) == 0:
-        raise ValueError("Must include at least one character type.")
+
     return ''.join(secrets.choice(chars) for _ in range(length))
