@@ -10,4 +10,5 @@ def generate_password(length=12, include_upper=True, include_digits=True, includ
     if include_symbols:
         chars += string.punctuation
 
+    # Uses secrets.choice instead of random.choice for cryptographically secure randomness
     return ''.join(secrets.choice(chars) for _ in range(length))
