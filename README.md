@@ -1,3 +1,28 @@
 # secure-password-generator
 
-A Python CLI for secure password generation and analysis
+SecurePassGen
+SecurePassGen is a Python command-line tool for generating cryptographically secure passwords and analyzing their strength against NIST SP 800-63B guidelines and local breached lists. Built as a preventive cybersecurity project, it emphasizes authentication best practices to mitigate risks like brute-force and dictionary attacks, drawing from Security+ (Sec+) certification knowledge and TryHackMe Cybersecurity 101 modules.
+Installation
+
+Clone the repository: git clone https://github.com/msuL9/SecurePassGen.git
+Navigate to the root: cd SecurePassGen
+Create and activate a virtual environment: python -m venv vulnenv then vulnenv\Scripts\activate (Windows) or source vulnenv/bin/activate (Unix).
+Install dependencies: pip install -r requirements.txt
+
+Usage Examples
+
+Generate a password: python src/main.py --length 16 (outputs a strong password with all character types).
+Exclude types: python src/main.py --length 12 --no-symbols (letters and digits only).
+Analyze strength: python src/main.py --analyze 'ComplexUCI2025$!' (use single quotes for special characters; outputs score and feedback).
+
+Features
+
+Cryptographic Generation: Uses secrets for randomness, guaranteeing at least one of each included type (lowercase, uppercase, digits, symbols) for NIST-compliant entropy.
+Strength Analysis: Scores passwords (0-100) based on length, complexity, and breached checks from a local RockYou subset, with tiered feedback (weak/moderate/strong) to educate on Sec+ risks like credential stuffing.
+Uniqueness: Local breached detection and mandatory diversity set it apart from basic generators, inspired by TryHackMe password cracking labs for real-world threat simulation.
+
+Testing
+
+Unit Tests: 15+ pytest cases with 100% coverage (via coverage), verifying guarantees like type inclusion and breached overrides.
+Bulk Metrics: 100% strong scores in 500 simulations, quantifying resistance to common attacks per Sec+ vulnerability management (domain 1.2).
+Run: python -m pytest tests/ and python -m coverage report.
