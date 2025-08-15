@@ -29,7 +29,7 @@ secure-password-generator is a Python command-line tool for generating cryptogra
 
 ## Reflections
 
-This project applies Sec+ authentication controls (domain 2.4) to enforce secure habits, building on my UChicago BS CS foundation (3.40 GPA) for modular code. It refreshes Python skills post-hiatus, tying to TryHackMe Cybersecurity 101 for threat modeling, and prepares for UCI MS CS secure development coursework.
+This project was intended to be a refresher on Python skills while also applying some of the knowledge that I gained from the Security+ and my Tryhackme experience.  Special thanks to Grok for helping me with planning and implementing the project.
 
 ## License
 
