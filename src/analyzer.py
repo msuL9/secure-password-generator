@@ -2,6 +2,7 @@ import string
 
 def analyze_strength(password, weak_list):
     score = 0
+    feedback = []
 
     # Length check (NIST recommends >=8, bonus for >=12)
     if len(password) >= 12:

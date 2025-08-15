@@ -3,9 +3,9 @@ from generator import generate_password
 from analyzer import analyze_strength
 
 def main():
-    # Load weak passwords list (case-insensitive) (rockyou list)
+    # Load weak passwords list (case-insensitive) (first 1000 entries of rockyou list)
     try:
-        with open('data/weak_passwords.txt', 'r', encoding='latin-1') as f:
+        with open('data/weak_passwords.txt', 'r', encoding='utf-8') as f:
             weak_list = set(line.strip().lower() for line in f)
     except FileNotFoundError:
         print("Error: weak_passwords.txt not found in data/. Please create it.")
