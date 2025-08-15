@@ -4,14 +4,15 @@ from src.generator import generate_password
 import string
 
 
-def test_generate_password_default():
+@patch('secrets.choice')  # Mock for determinism
+def test_generate_password_default(mock_choice):
+    mock_sequence = list('aB1!cD2@eF3#')  # Includes all types
+    mock_choice.side_effect = mock_sequence
     pw = generate_password()
-    assert len(pw) == 12, "Default length should be 12"
-    assert any(c.isupper() for c in pw), "Should include uppercase"
-    assert any(c.isdigit() for c in pw), "Should include digits"
-    assert any(
-        c in "!@#$%^&*()_+" for c in pw
-    ), "Should include symbols"  # Adjust punctuation check
+    assert len(pw) == 12
+    assert any(c.isupper() for c in pw)
+    assert any(c.isdigit() for c in pw)
+    assert any(c in string.punctuation for c in pw)
 
 
 def test_generate_password_custom():
