@@ -38,11 +38,8 @@ def analyze_strength(password, weak_list):
         score = 0
         feedback.append("Password is in breached list—change immediately to avoid attacks.")
 
-    # Tiered overall feedback (adjusted thresholds for nuance: weak <50, moderate 50-79, strong >=80 no extra)
-    if score < 50 and not feedback:
-        feedback.append("Weak: Increase length/complexity per NIST guidelines.")
-    elif score < 80:
-        if score >= 50:
-            feedback.append("Moderate: Consider adding more character types for optimal strength.")
+    # Tiered overall feedback (adjusted thresholds for nuance: moderate 50-79, strong >=80 no extra)
+    if score < 80 and score >= 50:
+        feedback.append("Moderate: Consider adding more character types for optimal strength.")
 
     return {"score": score, "feedback": feedback}
