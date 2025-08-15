@@ -42,3 +42,14 @@ def test_generate_password_guarantees_types():
     assert any(c.isupper() for c in pw)
     assert any(c.isdigit() for c in pw)
     assert any(c in string.punctuation for c in pw)
+
+def test_generate_password_short_length_error():
+    with pytest.raises(ValueError):
+        generate_password(length=3)  # Hits remaining_length <0
+
+@patch('secrets.choice')
+def test_generate_password_custom_no_upper(mock_choice):
+    mock_sequence = list('a1b2c3d4e5f6')
+    mock_choice.side_effect = mock_sequence
+    pw = generate_password(length=12, include_upper=False)
+    assert not any(c.isupper() for c in pw)
