@@ -1,6 +1,7 @@
 # secure-password-generator
 
-![Demo](docs/demo.mp4)
+[![SecurePassGen Demo](https://img.youtube.com/vi/GdS7trEozcw/0.jpg)](https://www.youtube.com/watch?v=GdS7trEozcw)
+
 
 secure-password-generator is a Python command-line tool for generating cryptographically secure passwords and analyzing their strength against NIST SP 800-63B guidelines and local breached lists. Built as a preventive cybersecurity project, it emphasizes authentication best practices to mitigate risks like brute-force and dictionary attacks, drawing from Security+ (Sec+) certification knowledge and TryHackMe Cybersecurity 101 modules.
 
