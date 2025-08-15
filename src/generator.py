@@ -2,7 +2,10 @@ import secrets
 import string
 import random  # For shuffling
 
-def generate_password(length=12, include_upper=True, include_digits=True, include_symbols=True):
+
+def generate_password(
+    length=12, include_upper=True, include_digits=True, include_symbols=True
+):
     chars = string.ascii_lowercase
     if include_upper:
         chars += string.ascii_uppercase
@@ -12,7 +15,9 @@ def generate_password(length=12, include_upper=True, include_digits=True, includ
         chars += string.punctuation
 
     if len(chars) == len(string.ascii_lowercase):
-        raise ValueError("Must include at least one of: uppercase, digits, or symbols for security.")
+        raise ValueError(
+            "Must include at least one of: uppercase, digits, or symbols for security."
+        )
 
     # Guarantee at least one of each included type (if selected)
     password_list = []
@@ -32,4 +37,4 @@ def generate_password(length=12, include_upper=True, include_digits=True, includ
 
     # Shuffle for unpredictability
     random.shuffle(password_list)
-    return ''.join(password_list)
+    return "".join(password_list)
