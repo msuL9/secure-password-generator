@@ -1,11 +1,11 @@
-# SecurePassGen
+# secure-password-generator
 
-SecurePassGen is a Python command-line tool for generating cryptographically secure passwords and analyzing their strength against NIST SP 800-63B guidelines and local breached lists. Built as a preventive cybersecurity project, it emphasizes authentication best practices to mitigate risks like brute-force and dictionary attacks, drawing from Security+ (Sec+) certification knowledge and TryHackMe Cybersecurity 101 modules.
+secure-password-generator is a Python command-line tool for generating cryptographically secure passwords and analyzing their strength against NIST SP 800-63B guidelines and local breached lists. Built as a preventive cybersecurity project, it emphasizes authentication best practices to mitigate risks like brute-force and dictionary attacks, drawing from Security+ (Sec+) certification knowledge and TryHackMe Cybersecurity 101 modules.
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/msuL9/SecurePassGen.git`
-2. Navigate to the root: `cd SecurePassGen`
+1. Clone the repository: `git clone https://github.com/msuL9/secure-password-generator.git`
+2. Navigate to the root: `cd secure-password-generator`
 3. Create and activate a virtual environment: `python -m venv vulnenv` then `vulnenv\Scripts\activate` (Windows CMD) or `source vulnenv/bin/activate` (Unix/Git Bash).
 4. Install dependencies: `pip install -r requirements.txt`
 
