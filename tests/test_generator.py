@@ -1,5 +1,7 @@
 import pytest
+from unittest.mock import patch
 from src.generator import generate_password
+import string
 
 def test_generate_password_default():
     pw = generate_password()
@@ -21,3 +23,10 @@ def test_generate_password_error_no_types():
 def test_generate_password_min_length():
     pw = generate_password(length=8)
     assert len(pw) == 8
+
+def test_generate_password_guarantees_types():
+    pw = generate_password()
+    assert any(c.islower() for c in pw)
+    assert any(c.isupper() for c in pw)
+    assert any(c.isdigit() for c in pw)
+    assert any(c in string.punctuation for c in pw)
