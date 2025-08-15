@@ -1,6 +1,6 @@
 # secure-password-generator
 
-secure-password-generator is a Python command-line tool for generating cryptographically secure passwords and analyzing their strength against NIST SP 800-63B guidelines and local breached lists. Built as a preventive cybersecurity project, it emphasizes authentication best practices to mitigate risks like brute-force and dictionary attacks, drawing from Security+ certification knowledge and TryHackMe Cybersecurity 101 modules.
+secure-password-generator is a Python command-line tool for generating cryptographically secure passwords and analyzing their strength against NIST SP 800-63B guidelines and local breached lists. Built as a preventive cybersecurity project, it emphasizes authentication best practices to mitigate risks like brute-force and dictionary attacks, drawing from Security+ (Sec+) certification knowledge and TryHackMe Cybersecurity 101 modules.
 
 ## Installation
 
@@ -29,7 +29,7 @@ secure-password-generator is a Python command-line tool for generating cryptogra
 
 ## Reflections
 
-This project was intended to be a refresher on Python skills while also applying some of the knowledge that I gained from the Security+ and my Tryhackme experience.  Special thanks to Grok for helping me with planning and implementing the project.
+This project taught the necessity of cryptographically secure RNGs (Sec+ domain 2.8) for unpredictable entropy, as non-secure alternatives enable prediction attacks like those in TryHackMe labs. Debugging Unicode decoding, argparse bugs, and flaky randomness reinforced secure coding (domain 3.5), preventing logic flaws in authentication tools. Achieving 100% coverage highlighted risk assessment (domain 1.2) for validating preventive controls against threats like credential stuffing. It refreshed Python modularity from my BA in CS, preparing for UCI MS CS secure development.
 
 ## License
 
