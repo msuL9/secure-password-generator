@@ -29,10 +29,6 @@ secure-password-generator is a Python command-line tool for generating cryptogra
 - Bulk Metrics: 100% strong scores in 500 simulations, quantifying resistance to common attacks per Sec+ vulnerability management (domain 1.2).
 - Run: `python -m pytest tests/` and `python -m coverage report`.
 
-## Reflections
-
-This project taught the necessity of cryptographically secure RNGs (Sec+ domain 2.8) for unpredictable entropy, as non-secure alternatives enable prediction attacks like those in TryHackMe labs. Debugging Unicode decoding, argparse bugs, and flaky randomness reinforced secure coding (domain 3.5), preventing logic flaws in authentication tools. Achieving 100% coverage highlighted risk assessment (domain 1.2) for validating preventive controls against threats like credential stuffing. It refreshed Python modularity from my BA in CS, preparing for UCI MS CS secure development.
-
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
