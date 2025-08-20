@@ -2,32 +2,72 @@
 
 ![Demo](docs/demo.gif)
 
-secure-password-generator is a Python command-line tool for generating cryptographically secure passwords and analyzing their strength against NIST SP 800-63B guidelines and local breached lists. Built as a preventive cybersecurity project, it emphasizes authentication best practices to mitigate risks like brute-force and dictionary attacks, drawing from Security+ (Sec+) certification knowledge and TryHackMe Cybersecurity 101 modules.
+# Secure Password Generator and Strength Analyzer
 
-## Installation
-
-1. Clone the repository: `git clone https://github.com/msuL9/secure-password-generator.git`
-2. Navigate to the root: `cd secure-password-generator`
-3. Create and activate a virtual environment: `python -m venv vulnenv` then `vulnenv\Scripts\activate` (Windows CMD) or `source vulnenv/bin/activate` (Unix/Git Bash).
-4. Install dependencies: `pip install -r requirements.txt`
-
-## Usage Examples
-
-- Generate a password: `python src/main.py --length 16` (outputs a strong password with all character types).
-- Exclude types: `python src/main.py --length 12 --no-symbols` (letters and digits only).
-- Analyze strength: `python src/main.py --analyze 'ComplexUCI2025$!'` (use single quotes for special characters; outputs score and feedback).
+## Overview
+This project is a command-line tool for generating secure passwords and analyzing their strength. It uses cryptographically secure methods to generate passwords and evaluates strength based on length, complexity, and checks against common breached passwords. Built with modularity in mind, it demonstrates foundational cybersecurity principles like entropy and breach detection, inspired by NIST guidelines, Sec+ certification, and TryHackMe labs.
 
 ## Features
+- Generate passwords with customizable length, inclusion of character types (uppercase, lowercase, digits, symbols), and exclusion options.
+- Analyze password strength with a scoring system (0-100) considering length, complexity, and breached status.
+- Uses a local subset of the RockYou breached password list for offline checks.
+- Modular design with separate modules for generation and analysis.
+- 100% test coverage using pytest.
+- CLI interface for ease of use and security.
 
-- **Cryptographic Generation**: Uses `secrets` for randomness, guaranteeing at least one of each included type (lowercase, uppercase, digits, symbols) for NIST-compliant entropy.
-- **Strength Analysis**: Scores passwords (0-100) based on length, complexity, and breached checks from a local RockYou subset, with tiered feedback (weak/moderate/strong) to educate on Sec+ risks like credential stuffing.
-- **Uniqueness**: Local breached detection and mandatory diversity set it apart from basic generators, inspired by TryHackMe password cracking labs for real-world threat simulation.
+## Requirements
+- Python 3.13.6
+- Dependencies listed in `requirements.txt`:
+  ```
+  pytest==8.3.2
+  coverage==7.6.1
+  ```
+
+## Setup
+1. Clone the repository:
+   ```
+   git clone https://github.com/msuL9/secure-password-generator.git
+   cd secure-password-generator
+   ```
+2. Create and activate a virtual environment:
+   ```
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+3. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+
+## Usage
+Run the tool via CLI with `python main.py`. Examples:
+
+- Generate a password:
+  ```
+  python main.py generate --length 16 --include-uppercase --include-digits --include-symbols
+  ```
+
+- Analyze a password:
+  ```
+  python main.py analyze --password "YourPasswordHere"
+  ```
+
+Use `--help` for full options:
+```
+python main.py --help
+```
 
 ## Testing
-
-- Unit Tests: 15+ pytest cases with 100% coverage (via `coverage`), verifying guarantees like type inclusion and breached overrides.
-- Bulk Metrics: 100% strong scores in 500 simulations, quantifying resistance to common attacks per Sec+ vulnerability management (domain 1.2).
-- Run: `python -m pytest tests/` and `python -m coverage report`.
+1. Run unit tests:
+   ```
+   pytest
+   ```
+2. Check coverage:
+   ```
+   coverage run -m pytest
+   coverage report -m
+   ```
+Tests cover all functions, including edge cases like minimum length, breached matches, and character inclusion. Achieves 100% coverage.
 
 ## License
 
